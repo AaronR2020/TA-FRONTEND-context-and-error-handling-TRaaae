@@ -1,12 +1,23 @@
-function Title({ text, isDarkMode }) {
+import {UserConsumer} from '../userContext'
+
+function Title({ text}) {
   return (
-    <h2
-      className={`heading ${
-        isDarkMode ? "sub-heading-dark" : "sub-heading-light"
-      }`}
-    >
-      {text}
-    </h2>
+    <UserConsumer>
+      {
+         (mode)=>{
+          <h2
+          className={`heading ${mode} ? "sub-heading-dark" : "sub-heading-light"
+          `}
+        >
+      
+          {text}
+        </h2>
+         }
+         
+      }
+   
+    </UserConsumer>
+
   );
 }
 

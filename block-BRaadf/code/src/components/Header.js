@@ -1,8 +1,18 @@
+import {UserConsumer} from '../userContext'
+
 function Header({ isDarkMode }) {
   return (
-    <h1 className={`heading ${isDarkMode ? "heading-dark" : "heading-light"}`}>
-      {isDarkMode ? "Dark Mode" : "Light Mode"}
-    </h1>
+<UserConsumer>
+  {
+    (mode)=>{
+      return <h1 className={`heading ${{mode} ? "heading-dark" : "heading-light"}`}>
+      {mode ? "Dark Mode" : "Light Mode"}
+      </h1>
+    }
+  }
+
+</UserConsumer>
+
   );
 }
 
